@@ -12,6 +12,7 @@ export const GlobalStyles = styled.createGlobalStyle`
     --lightGray: #f6f8ff;
     --offWhite: #fefefe;
 
+
     //dark mode colors
     //--brightBlue
     --white: #ffffff;
@@ -20,7 +21,10 @@ export const GlobalStyles = styled.createGlobalStyle`
     --nearBlack: #222731;
 
     //button hover color
-    --buttonHover: #60ABFF;
+    --buttonHover: #60abff;
+
+    //box shadow for light theme
+    --cardShadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.1986);
   }
 
   * {
@@ -29,14 +33,13 @@ export const GlobalStyles = styled.createGlobalStyle`
     box-sizing: border-box;
   }
 
-
-
   body {
     min-height: 100vh;
     font-family: "Space Mono", sans-serif;
     background-color: ${(props) => props.theme.backgroundColor};
     color: ${(props) => props.theme.color};
-    transition: all 0.40s linear;
+    transition: all 0.4s linear;
+
   }
 
   /* Set core root defaults */
@@ -54,6 +57,10 @@ export const GlobalStyles = styled.createGlobalStyle`
 
   button {
     cursor: pointer;
+  }
+
+  ul {
+    list-style: none;
   }
 
   h1 {

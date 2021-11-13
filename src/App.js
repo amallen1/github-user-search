@@ -3,6 +3,7 @@ import { useState } from "react";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./globalStyles";
 import Search from "./components/Search";
+import ProfileCard from "./components/ProfileCard";
 
 const lightTheme = {
   backgroundColor: "var(--lightGray)",
@@ -11,6 +12,9 @@ const lightTheme = {
   hoverColor: "var(--nearBlack)",
   imageUrl: "/assets/icon-moon.svg",
   color: "black",
+  textColor: "var(--dullBlue)",
+  cardColor: "var(--white)",
+  usernameColor: "#2B3442",
 };
 
 const darkTheme = {
@@ -19,7 +23,10 @@ const darkTheme = {
   logoColor: "var(--white)",
   hoverColor: "#90A4D4",
   imageUrl: "/assets/icon-sun.svg",
-  color: "white",
+  color: "var(--white)",
+  textColor: "var(--white)",
+  cardColor: "var(--navyBlue)",
+  usernameColor: "var(--white)",
 };
 
 const themes = {
@@ -29,7 +36,19 @@ const themes = {
 
 const Container = styled.div`
   padding: 1.9375rem 1.5rem;
+  margin: 0 auto;
+
+  //for tablets
+  @media (max-width: 900px) {
+    max-width: 573px;
+  }
+
+  //for desktops
+  @media (min-width: 1000px) and (max-width: 1400px) {
+    max-width: 730px;
+  }
 `;
+
 const Header = styled.div`
   display: flex;
   justify-content: space-between;
@@ -39,7 +58,7 @@ const Header = styled.div`
 
 const Logo = styled.h1`
   color: ${(props) => props.theme.logoColor};
-  font-size: 1.444rem;
+  font-size: 1.625rem;
 `;
 
 const ThemeSelector = styled.div`
@@ -76,27 +95,24 @@ function App() {
     <ThemeProvider theme={themes[theme]}>
       <GlobalStyles />
 
-      <div>
-        <Container>
-          <Header>
-            <Logo>devfinder</Logo>
-            <ThemeSelector>
-              <ThemeButton onClick={themeToggler}>
-                {theme === "light" ? "dark" : "light"}
-              </ThemeButton>
-              {theme === "light" ? (
-                <Icon src="./assets/icon-moon.svg" />
-              ) : (
-                <Icon src="./assets/icon-sun.svg" />
-              )}
-            </ThemeSelector>
-          </Header>
+      <Container>
+        <Header>
+          <Logo>devfinder</Logo>
+          <ThemeSelector>
+            <ThemeButton onClick={themeToggler}>
+              {theme === "light" ? "dark" : "light"}
+            </ThemeButton>
+            {theme === "light" ? (
+              <Icon src="./assets/icon-moon.svg" />
+            ) : (
+              <Icon src="./assets/icon-sun.svg" />
+            )}
+          </ThemeSelector>
+        </Header>
 
-          <Search />
-          {/* Search */}
-          {/* Profile */}
-        </Container>
-      </div>
+        <Search />
+        <ProfileCard />
+      </Container>
     </ThemeProvider>
   );
 }

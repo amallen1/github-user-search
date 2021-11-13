@@ -3,36 +3,43 @@ import styled from "styled-components";
 
 const InputSection = styled.div`
   position: relative;
+  margin-bottom: 1rem;
 `;
 
 const Input = styled.input`
   width: 100%;
-  padding: 1.125rem 6.5rem 1.0625rem 2.815rem;
+  padding: 1.125rem 6rem 1.0625rem 2.815rem;
   border: none;
   border-radius: 15px;
-  box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.1986);
+  box-shadow: var(--cardShadow);
   font-size: 0.8125rem;
   line-height: 1.5625rem;
   background-image: url("/assets/icon-search.svg");
   background-repeat: no-repeat;
+  background-size: 20px 20px;
   background-position: 1rem;
-  position: relative;
+  background-color: ${(props) => props.theme.cardColor};
 
   ::placeholder {
-    /* padding-left: 1.5625rem; */
+    /* color: #4b6a9b; */
+
+    color: ${(props) => props.theme.textColor};
+  }
+
+  :focus {
+    outline: none;
   }
 `;
 
 const Button = styled.button`
   position: absolute;
   right: 7px;
-  top: 9px;
-
+  top: 6px;
+  bottom: 7px;
   border: none;
   border-radius: 10px;
   padding: 0.75rem 1rem;
   background-color: var(--brightBlue);
-
   color: white;
   font-size: 0.875rem;
   font-weight: 700;
