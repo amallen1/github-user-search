@@ -12,7 +12,6 @@ export const GlobalStyles = styled.createGlobalStyle`
     --lightGray: #f6f8ff;
     --offWhite: #fefefe;
 
-
     //dark mode colors
     //--brightBlue
     --white: #ffffff;
@@ -39,7 +38,6 @@ export const GlobalStyles = styled.createGlobalStyle`
     background-color: ${(props) => props.theme.backgroundColor};
     color: ${(props) => props.theme.color};
     transition: all 0.4s linear;
-
   }
 
   /* Set core root defaults */

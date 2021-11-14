@@ -5,6 +5,7 @@ import { GlobalStyles } from "./globalStyles";
 import Search from "./components/Search";
 import ProfileCard from "./components/ProfileCard";
 
+
 const lightTheme = {
   backgroundColor: "var(--lightGray)",
   btnColor: "var(--dullBlue)",
@@ -15,6 +16,7 @@ const lightTheme = {
   textColor: "var(--dullBlue)",
   cardColor: "var(--white)",
   usernameColor: "#2B3442",
+  shadow: "0px 16px 30px -10px rgba(70, 96, 187, 0.1986);"
 };
 
 const darkTheme = {
@@ -27,6 +29,7 @@ const darkTheme = {
   textColor: "var(--white)",
   cardColor: "var(--navyBlue)",
   usernameColor: "var(--white)",
+  shadow: "none",
 };
 
 const themes = {
@@ -40,7 +43,7 @@ const Container = styled.div`
 
   //for tablets
   @media (max-width: 900px) {
-    max-width: 573px;
+    max-width: 621px;
   }
 
   //for desktops
