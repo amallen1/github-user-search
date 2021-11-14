@@ -5,7 +5,7 @@ const Card = styled.div`
   border-radius: 15px;
   background-color: ${(props) => props.theme.cardColor};
   color: ${(props) => props.theme.textColor};
-  box-shadow: var(--cardShadow);
+  box-shadow: ${(props) => props.theme.shadow};
   padding: 2rem 1.5rem;
   font-size: 0.8125rem;
 
@@ -45,7 +45,7 @@ const NameSection = styled.div`
     margin-bottom: 0.375rem;
     font-size: 0.8125rem;
 
-    @media (min-width: 768px) {
+    @media (min-width: 500px) {
       margin-bottom: 4px;
     }
   }
@@ -53,6 +53,10 @@ const NameSection = styled.div`
 
 const Bio = styled.div`
   margin-bottom: 1.4375rem;
+
+  @media (min-width: 500px) {
+    font-size: 0.9375rem;
+  }
 `;
 
 const Stats = styled.div`
@@ -63,36 +67,52 @@ const Stats = styled.div`
 
   ul {
     display: flex;
-    justify-content: space-between;
     text-align: center;
 
     li {
-      /* padding: 0 0.5rem; */
+      width: 100%;
     }
   }
 
   p {
     font-size: 0.6875rem;
+    margin-bottom: .5rem;
   }
 
   span {
     font-weight: 700;
     font-size: 1rem;
+    color: ${(props) => props.theme.usernameColor};
+  }
+
+  @media (min-width: 500px) {
+    ul {
+      text-align: left;
+    }
+
+    margin-bottom: 1.875rem;
   }
 `;
 
 const Links = styled.div`
   ul {
-    display: flex;
-    flex-direction: column;
+    display: grid;
 
     li {
       display: flex;
       margin-bottom: 1rem;
+      position: relative;
     }
 
-    img {
-      margin-right: 14.4px;
+    p {
+      position: absolute;
+      left: 2.0625rem;
+    }
+  }
+
+  @media (min-width: 500px) {
+    ul {
+      grid-template-columns: 1fr 1fr;
     }
   }
 `;
