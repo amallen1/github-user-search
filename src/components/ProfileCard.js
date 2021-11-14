@@ -38,6 +38,13 @@ const MainInfo = styled.div`
 
     margin-top: 0.75rem;
   }
+
+  @media (min-width: 1000px) {
+    /* display: flex;
+    justify-content: space-between; */
+    /* margin-right: auto; */
+
+  }
 `;
 
 const NameSection = styled.div`
@@ -48,7 +55,7 @@ const NameSection = styled.div`
   }
 
   h3 {
-    display: inline-block;
+    /* display: inline-block; */
     color: var(--brightBlue);
     margin-bottom: 0.375rem;
     font-size: 0.8125rem;
@@ -197,12 +204,12 @@ const ProfileCard = () => {
           <ul>
             <li>
               <img src="/assets/icon-location.svg" alt="Location" />
-              <p>Location</p>
+              <p>San Francisco</p>
             </li>
 
             <li>
               <img src="/assets/icon-website.svg" alt="Website icon" />
-              <p>Website</p>
+              <p>https://github.blog</p>
             </li>
 
             <li>
@@ -211,8 +218,8 @@ const ProfileCard = () => {
             </li>
 
             <li>
-              <img src="/assets/icon-location.svg" alt="Company icon" />
-              <p>Company</p>
+              <img src="/assets/icon-company.svg" alt="Company icon" />
+              <p>@github</p>
             </li>
           </ul>
         </Links>

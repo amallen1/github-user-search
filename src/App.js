@@ -40,6 +40,7 @@ const themes = {
 const Container = styled.div`
   padding: 1.9375rem 1.5rem;
   margin: 0 auto;
+  /* border: 1px solid red; */
 
   //for tablets
   @media (max-width: 900px) {
@@ -47,8 +48,8 @@ const Container = styled.div`
   }
 
   //for desktops
-  @media (min-width: 1000px) and (max-width: 1400px) {
-    max-width: 730px;
+  @media (min-width: 900px)  {
+    max-width: 780px;
   }
 `;
 
