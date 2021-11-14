@@ -30,7 +30,15 @@ const AvatarContainer = styled.div`
   }
 `;
 
-const MainInfo = styled.div``;
+const MainInfo = styled.div`
+  @media (min-width: 500px) {
+    p {
+      font-size: 0.9375rem;
+    }
+
+    margin-top: 0.75rem;
+  }
+`;
 
 const NameSection = styled.div`
   h1 {
@@ -47,6 +55,17 @@ const NameSection = styled.div`
 
     @media (min-width: 500px) {
       margin-bottom: 4px;
+    }
+  }
+
+  @media (min-width: 500px) {
+    h1 {
+      font-size: revert;
+      margin-bottom: 0.125rem;
+    }
+
+    h3 {
+      font-size: 1rem;
     }
   }
 `;
@@ -76,7 +95,7 @@ const Stats = styled.div`
 
   p {
     font-size: 0.6875rem;
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
   }
 
   span {
@@ -89,8 +108,18 @@ const Stats = styled.div`
     ul {
       text-align: left;
     }
+    padding: 0.9375rem 0.875rem 1.0625rem;
 
     margin-bottom: 1.875rem;
+
+    p {
+      font-size: 0.8125rem;
+      margin-bottom: 1px;
+    }
+
+    span {
+      font-size: 1.375rem;
+    }
   }
 `;
 
