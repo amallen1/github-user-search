@@ -34,14 +34,13 @@ const Input = styled.input`
   :focus {
     outline: none;
   }
-  
-  @media (min-width: 500px){
+
+  @media (min-width: 500px) {
     font-size: 1.125rem;
     padding: 1.375rem 6rem 1.375rem 4rem;
     background-size: 24px 24px;
     background-position: 2rem;
   }
-  
 `;
 
 const Button = styled.button`
@@ -60,14 +59,25 @@ const Button = styled.button`
   :hover {
     background-color: var(--buttonHover);
   }
+
+  @media (min-width: 500px) {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+  }
 `;
 
-const Search = () => {
+const Search = ({ setUser, user, fetchData }) => {
   return (
     <div>
       <InputSection>
-        <Input type="text" placeholder="Search GitHub username..." />
-        <Button>Search</Button>
+        <Input
+          type="text"
+          placeholder="Search GitHub username..."
+          value={user}
+          onChange={(e) => setUser(e.target.value)}
+        />
+        {/* should call the api on click */}
+        <Button onClick={fetchData}>Search</Button>
       </InputSection>
     </div>
   );

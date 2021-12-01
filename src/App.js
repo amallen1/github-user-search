@@ -1,10 +1,17 @@
-import styled from "styled-components";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./globalStyles";
 import Search from "./components/Search";
 import ProfileCard from "./components/ProfileCard";
-
+import axios from "axios";
+import {
+  Container,
+  Header,
+  Logo,
+  ThemeSelector,
+  ThemeButton,
+  Icon,
+} from "./AppStyles";
 
 const lightTheme = {
   backgroundColor: "var(--lightGray)",
@@ -16,7 +23,7 @@ const lightTheme = {
   textColor: "var(--dullBlue)",
   cardColor: "var(--white)",
   usernameColor: "#2B3442",
-  shadow: "0px 16px 30px -10px rgba(70, 96, 187, 0.1986);"
+  shadow: "0px 16px 30px -10px rgba(70, 96, 187, 0.1986);",
 };
 
 const darkTheme = {
@@ -37,59 +44,28 @@ const themes = {
   dark: darkTheme,
 };
 
-const Container = styled.div`
-  padding: 1.9375rem 1.5rem;
-  margin: 0 auto;
-  /* border: 1px solid red; */
-
-  //for tablets
-  @media (max-width: 900px) {
-    max-width: 621px;
-  }
-
-  //for desktops
-  @media (min-width: 900px)  {
-    max-width: 780px;
-  }
-`;
-
-const Header = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2.25rem;
-`;
-
-const Logo = styled.h1`
-  color: ${(props) => props.theme.logoColor};
-  font-size: 1.625rem;
-`;
-
-const ThemeSelector = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-const ThemeButton = styled.button`
-  color: ${(props) => props.theme.btnColor};
-  background: transparent;
-  border: none;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2.5px;
-  font-size: 0.8125rem;
-
-  :hover {
-    color: ${(props) => props.theme.hoverColor};
-  }
-`;
-
-const Icon = styled.img`
-  margin-left: 1rem;
-`;
-
 function App() {
   const [theme, setTheme] = useState("light");
+  const [username, setUsername] = useState("");
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    if (!data) {
+      console.log("no data yet");
+    }
+  });
+
+  const fetchData = async (username) => {
+    console.log(username);
+    // axios(`https://api.github.com/users/${username}`)
+    //   .then((response) => {
+    //     console.log(response.data);
+    //     setData(response.data);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
+  };
 
   const themeToggler = () => {
     theme === "light" ? setTheme("dark") : setTheme("light");
@@ -114,7 +90,7 @@ function App() {
           </ThemeSelector>
         </Header>
 
-        <Search />
+        <Search setUser={setUsername} user={username} fetchData={fetchData} />
         <ProfileCard />
       </Container>
     </ThemeProvider>

@@ -8,7 +8,6 @@ const Card = styled.div`
   box-shadow: ${(props) => props.theme.shadow};
   padding: 2rem 1.5rem;
   font-size: 0.8125rem;
-
   @media (min-width: 500px) {
     padding: 2.5rem;
   }
@@ -21,7 +20,6 @@ const Header = styled.div`
 
 const AvatarContainer = styled.div`
   margin-right: 1.1875rem;
-
   @media (min-width: 500px) {
     img {
       height: 117px;
@@ -35,15 +33,12 @@ const MainInfo = styled.div`
     p {
       font-size: 0.9375rem;
     }
-
     margin-top: 0.75rem;
   }
-
   @media (min-width: 1000px) {
     /* display: flex;
     justify-content: space-between; */
     /* margin-right: auto; */
-
   }
 `;
 
@@ -53,24 +48,20 @@ const NameSection = styled.div`
     line-height: normal;
     color: ${(props) => props.theme.usernameColor};
   }
-
   h3 {
     /* display: inline-block; */
     color: var(--brightBlue);
     margin-bottom: 0.375rem;
     font-size: 0.8125rem;
-
     @media (min-width: 500px) {
       margin-bottom: 4px;
     }
   }
-
   @media (min-width: 500px) {
     h1 {
       font-size: revert;
       margin-bottom: 0.125rem;
     }
-
     h3 {
       font-size: 1rem;
     }
@@ -79,7 +70,6 @@ const NameSection = styled.div`
 
 const Bio = styled.div`
   margin-bottom: 1.4375rem;
-
   @media (min-width: 500px) {
     font-size: 0.9375rem;
   }
@@ -90,40 +80,32 @@ const Stats = styled.div`
   background-color: ${(props) => props.theme.backgroundColor};
   padding: 1.125rem 0.875rem 1.1875rem;
   margin-bottom: 1rem;
-
   ul {
     display: flex;
     text-align: center;
-
     li {
       width: 100%;
     }
   }
-
   p {
     font-size: 0.6875rem;
     margin-bottom: 0.5rem;
   }
-
   span {
     font-weight: 700;
     font-size: 1rem;
     color: ${(props) => props.theme.usernameColor};
   }
-
   @media (min-width: 500px) {
     ul {
       text-align: left;
     }
     padding: 0.9375rem 0.875rem 1.0625rem;
-
     margin-bottom: 1.875rem;
-
     p {
       font-size: 0.8125rem;
       margin-bottom: 1px;
     }
-
     span {
       font-size: 1.375rem;
     }
@@ -133,19 +115,16 @@ const Stats = styled.div`
 const Links = styled.div`
   ul {
     display: grid;
-
     li {
       display: flex;
       margin-bottom: 1rem;
       position: relative;
     }
-
     p {
       position: absolute;
       left: 2.0625rem;
     }
   }
-
   @media (min-width: 500px) {
     ul {
       grid-template-columns: 1fr 1fr;
@@ -159,7 +138,7 @@ const ProfileCard = () => {
       <Card>
         <Header>
           <AvatarContainer>
-            <img src="/assets/Oval.svg" />
+            <img src="/assets/Oval.svg" alt="pic" />
           </AvatarContainer>
 
           <MainInfo>
