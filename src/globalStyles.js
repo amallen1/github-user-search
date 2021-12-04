@@ -53,6 +53,9 @@ export const GlobalStyles = styled.createGlobalStyle`
     font: inherit;
   }
 
+  a {
+    text-decoration: none;
+  }
   button {
     cursor: pointer;
   }

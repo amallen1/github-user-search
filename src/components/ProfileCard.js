@@ -20,6 +20,13 @@ const Header = styled.div`
 
 const AvatarContainer = styled.div`
   margin-right: 1.1875rem;
+
+  img {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+  }
+
   @media (min-width: 500px) {
     img {
       height: 117px;
@@ -70,6 +77,7 @@ const NameSection = styled.div`
 
 const Bio = styled.div`
   margin-bottom: 1.4375rem;
+
   @media (min-width: 500px) {
     font-size: 0.9375rem;
   }
@@ -102,6 +110,7 @@ const Stats = styled.div`
     }
     padding: 0.9375rem 0.875rem 1.0625rem;
     margin-bottom: 1.875rem;
+
     p {
       font-size: 0.8125rem;
       margin-bottom: 1px;
@@ -120,9 +129,18 @@ const Links = styled.div`
       margin-bottom: 1rem;
       position: relative;
     }
-    p {
+
+    p,
+    a {
       position: absolute;
       left: 2.0625rem;
+    }
+
+    a {
+      color: ${(props) => props.theme.textColor};
+      :hover {
+        text-decoration: underline;
+      }
     }
   }
   @media (min-width: 500px) {
@@ -132,49 +150,55 @@ const Links = styled.div`
   }
 `;
 
-const ProfileCard = () => {
+const NoBio = styled.p`
+  color: var(--dullBlue);
+`;
+
+const ProfileCard = ({ data, loaded }) => {
   return (
     <div>
       <Card>
         <Header>
           <AvatarContainer>
-            <img src="/assets/Oval.svg" alt="pic" />
+            <img src={loaded && data ? data.avatar_url : null} alt="avatar" />
           </AvatarContainer>
 
           <MainInfo>
             <NameSection>
-              <h1>The Octocat</h1>
-              <h3>@octocat</h3>
+              <h1>{loaded && data ? data.name : null}</h1>
+              <h3>@{loaded && data ? data.login : null}</h3>
             </NameSection>
 
             <div>
-              <p>Joined 25 Jan 2011</p>
+              {/* <p>Joined 25 Jan 2011</p> */}
+              <p>Joined {loaded && data ? data.created_at : null}</p>
             </div>
           </MainInfo>
         </Header>
 
         <Bio>
-          <p>
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec
-            odio. Quisque volutpat mattis eros.
-          </p>
+          {loaded && data
+            ? data.bio !== null
+              ? data.bio
+              : "This profile has no bio"
+            : null}
         </Bio>
 
         <Stats>
           <ul>
             <li>
               <p>Repos</p>
-              <span>8</span>
+              <span>{data ? data.public_repos : 0}</span>
             </li>
 
             <li>
               <p>Followers</p>
-              <span>3938</span>
+              <span>{data ? data.followers : 0}</span>
             </li>
 
             <li>
               <p>Following</p>
-              <span>9</span>
+              <span>{data ? data.following : 0}</span>
             </li>
           </ul>
         </Stats>
@@ -183,22 +207,46 @@ const ProfileCard = () => {
           <ul>
             <li>
               <img src="/assets/icon-location.svg" alt="Location" />
-              <p>San Francisco</p>
+              <p>
+                {loaded && data
+                  ? data.location !== null
+                    ? data.location
+                    : "Not available"
+                  : null}
+              </p>
             </li>
 
             <li>
               <img src="/assets/icon-website.svg" alt="Website icon" />
-              <p>https://github.blog</p>
+              <a href={data ? data.blog : "Not available"}>
+                {loaded && data
+                  ? data.blog !== null
+                    ? data.blog
+                    : "Not available"
+                  : null}
+              </a>
             </li>
 
             <li>
               <img src="/assets/icon-twitter.svg" alt="Twitter icon" />
-              <p>Twitter</p>
+              <p>
+                {loaded && data
+                  ? data.twitter_username !== null
+                    ? data.twitter_username
+                    : "Not available"
+                  : null}
+              </p>
             </li>
 
             <li>
               <img src="/assets/icon-company.svg" alt="Company icon" />
-              <p>@github</p>
+              <p>
+                {loaded && data
+                  ? data.company !== null
+                    ? data.company
+                    : "Not available"
+                  : null}
+              </p>
             </li>
           </ul>
         </Links>

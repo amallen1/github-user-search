@@ -60,24 +60,36 @@ const Button = styled.button`
     background-color: var(--buttonHover);
   }
 
+  :before {
+    display: none;
+    position: absolute;
+    left: -8rem;
+    color: red;
+    content: "No results";
+    font-size: 15px;
+
+    ${({ error }) => error && `display: block`}
+  }
+
   @media (min-width: 500px) {
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
   }
 `;
 
-const Search = ({ setUser, user, fetchData }) => {
+const Search = ({ setUser, user, fetchData, error }) => {
   return (
     <div>
       <InputSection>
         <Input
           type="text"
           placeholder="Search GitHub username..."
-          value={user}
           onChange={(e) => setUser(e.target.value)}
         />
         {/* should call the api on click */}
-        <Button onClick={fetchData}>Search</Button>
+        <Button error={error} onClick={() => fetchData(user)}>
+          Search
+        </Button>
       </InputSection>
     </div>
   );

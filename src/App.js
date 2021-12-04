@@ -46,25 +46,32 @@ const themes = {
 
 function App() {
   const [theme, setTheme] = useState("light");
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState("octocat");
   const [data, setData] = useState(null);
+  const [caughtError, setCaughtError] = useState(false);
+  const [loaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     if (!data) {
-      console.log("no data yet");
+      fetchData();
     }
-  });
+  }, []);
 
-  const fetchData = async (username) => {
-    console.log(username);
-    // axios(`https://api.github.com/users/${username}`)
-    //   .then((response) => {
-    //     console.log(response.data);
-    //     setData(response.data);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
+  const fetchData = async () => {
+    axios(`https://api.github.com/users/${username}`)
+      .then((response) => {
+        console.log(response.data);
+        setData(response.data);
+        setCaughtError(false);
+        setIsLoaded(true);
+        return response.data;
+      })
+      .catch((error) => {
+        console.log(error);
+
+        //If username doesn't exist
+        setCaughtError(true);
+      });
   };
 
   const themeToggler = () => {
@@ -90,8 +97,13 @@ function App() {
           </ThemeSelector>
         </Header>
 
-        <Search setUser={setUsername} user={username} fetchData={fetchData} />
-        <ProfileCard />
+        <Search
+          setUser={setUsername}
+          user={username}
+          fetchData={fetchData}
+          error={caughtError}
+        />
+        <ProfileCard data={data} loaded={loaded} />
       </Container>
     </ThemeProvider>
   );
