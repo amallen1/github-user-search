@@ -14,7 +14,7 @@ const Card = styled.div`
 `;
 
 const Header = styled.div`
-  display: flex; //only for right now
+  display: flex;
   margin-bottom: 2.0625rem;
 `;
 
@@ -78,8 +78,16 @@ const NameSection = styled.div`
 const Bio = styled.div`
   margin-bottom: 1.4375rem;
 
+  /* p {
+    color: #4b6a9b;
+  } */
+
   @media (min-width: 500px) {
     font-size: 0.9375rem;
+  }
+
+  @media (min-width: 900px) {
+    margin-left: 8.7rem;
   }
 `;
 
@@ -118,12 +126,17 @@ const Stats = styled.div`
     span {
       font-size: 1.375rem;
     }
+
+    @media (min-width: 900px) {
+      margin-left: 8.7rem;
+    }
   }
 `;
 
 const Links = styled.div`
   ul {
     display: grid;
+
     li {
       display: flex;
       margin-bottom: 1rem;
@@ -148,10 +161,22 @@ const Links = styled.div`
       grid-template-columns: 1fr 1fr;
     }
   }
+
+  @media (min-width: 900px) {
+    margin-left: 8.7rem;
+  }
 `;
 
 const NoBio = styled.p`
-  color: var(--dullBlue);
+  color: ${(props) => props.theme.textColor};
+  opacity: 0.75;
+`;
+
+const Unavailable = styled.p`
+  color: #4b6a9b;
+  opacity: 0.75;
+  position: absolute;
+  left: 2.0625rem;
 `;
 
 const ProfileCard = ({ data, loaded }) => {
@@ -177,11 +202,13 @@ const ProfileCard = ({ data, loaded }) => {
         </Header>
 
         <Bio>
-          {loaded && data
-            ? data.bio !== null
-              ? data.bio
-              : "This profile has no bio"
-            : null}
+          {loaded && data ? (
+            data.bio !== null ? (
+              data.bio
+            ) : (
+              <NoBio>This profile has no bio</NoBio>
+            )
+          ) : null}
         </Bio>
 
         <Stats>
@@ -207,46 +234,50 @@ const ProfileCard = ({ data, loaded }) => {
           <ul>
             <li>
               <img src="/assets/icon-location.svg" alt="Location" />
-              <p>
-                {loaded && data
-                  ? data.location !== null
-                    ? data.location
-                    : "Not available"
-                  : null}
-              </p>
+
+              {loaded && data ? (
+                data.location !== null ? (
+                  <p>{data.location}</p>
+                ) : (
+                  <Unavailable>Not available</Unavailable>
+                )
+              ) : null}
             </li>
 
             <li>
               <img src="/assets/icon-website.svg" alt="Website icon" />
-              <a href={data ? data.blog : "Not available"}>
-                {loaded && data
-                  ? data.blog !== null
-                    ? data.blog
-                    : "Not available"
-                  : null}
-              </a>
+              {loaded && data !== null ? (
+                data.blog !== "" ? (
+                  <a href={data.blog}>{data.blog}</a>
+                ) : (
+                  <Unavailable>Not available</Unavailable>
+                )
+              ) : (
+                <Unavailable>Not available</Unavailable>
+              )}
             </li>
 
             <li>
               <img src="/assets/icon-twitter.svg" alt="Twitter icon" />
-              <p>
-                {loaded && data
-                  ? data.twitter_username !== null
-                    ? data.twitter_username
-                    : "Not available"
-                  : null}
-              </p>
+              {loaded && data ? (
+                data.twitter_username !== null ? (
+                  <p>{data.twitter_username}</p>
+                ) : (
+                  <Unavailable>Not available</Unavailable>
+                )
+              ) : null}
             </li>
 
             <li>
               <img src="/assets/icon-company.svg" alt="Company icon" />
-              <p>
-                {loaded && data
-                  ? data.company !== null
-                    ? data.company
-                    : "Not available"
-                  : null}
-              </p>
+
+              {loaded && data ? (
+                data.company !== null ? (
+                  <p>{data.company}</p>
+                ) : (
+                  <Unavailable>Not available</Unavailable>
+                )
+              ) : null}
             </li>
           </ul>
         </Links>
