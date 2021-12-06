@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Moment from "moment";
 
 const Card = styled.div`
   border-radius: 15px;
@@ -16,6 +17,12 @@ const Card = styled.div`
 const Header = styled.div`
   display: flex;
   margin-bottom: 2.0625rem;
+  position: relative;
+
+  @media (min-width: 900px) {
+    /* margin: 2rem; */
+    margin-bottom: 0rem;
+  }
 `;
 
 const AvatarContainer = styled.div`
@@ -42,10 +49,17 @@ const MainInfo = styled.div`
     }
     margin-top: 0.75rem;
   }
-  @media (min-width: 1000px) {
+  @media (min-width: 900px) {
     /* display: flex;
     justify-content: space-between; */
     /* margin-right: auto; */
+    display: flex;
+    p {
+      /* margin-left: 6rem; */
+      position: absolute;
+      right: 0px;
+      top: 1.25rem;
+    }
   }
 `;
 
@@ -88,6 +102,7 @@ const Bio = styled.div`
 
   @media (min-width: 900px) {
     margin-left: 8.7rem;
+    margin-top: -2rem;
   }
 `;
 
@@ -131,6 +146,10 @@ const Stats = styled.div`
       margin-left: 8.7rem;
     }
   }
+
+  @media (min-width: 900px) {
+    padding-left: 2rem;
+  }
 `;
 
 const Links = styled.div`
@@ -159,6 +178,16 @@ const Links = styled.div`
   @media (min-width: 500px) {
     ul {
       grid-template-columns: 1fr 1fr;
+    }
+
+    li {
+      :nth-child(2) {
+        order: 2;
+      }
+
+      :nth-child(4) {
+        order: 2;
+      }
     }
   }
 
@@ -195,8 +224,12 @@ const ProfileCard = ({ data, loaded }) => {
             </NameSection>
 
             <div>
-              {/* <p>Joined 25 Jan 2011</p> */}
-              <p>Joined {loaded && data ? data.created_at : null}</p>
+              <p>
+                Joined{" "}
+                {loaded && data
+                  ? Moment(data.created_at).format("D MMM YYYY")
+                  : null}
+              </p>
             </div>
           </MainInfo>
         </Header>
