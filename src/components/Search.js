@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-import breakpoint from "../breakpoints";
-
 const InputSection = styled.div`
   position: relative;
   margin-bottom: 1rem;
@@ -63,10 +61,11 @@ const Button = styled.button`
   :before {
     display: none;
     position: absolute;
-    left: -8rem;
+    bottom: 4rem;
+    left: 0rem;
     color: red;
     content: "No results";
-    font-size: 15px;
+    font-size: 13px;
 
     ${({ error }) => error && `display: block`}
   }
@@ -74,6 +73,11 @@ const Button = styled.button`
   @media (min-width: 500px) {
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
+
+    :before {
+      top: 1rem;
+      left: -5.5rem;
+    }
   }
 `;
 

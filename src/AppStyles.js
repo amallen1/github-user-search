@@ -1,9 +1,9 @@
 import styled from "styled-components";
+import { breakpoints } from "./breakpoints";
 
 export const Container = styled.div`
   padding: 1.9375rem 1.5rem;
   margin: 0 auto;
-  /* border: 1px solid red; */
 
   //for tablets
   @media (max-width: 900px) {
@@ -31,6 +31,17 @@ export const Logo = styled.h1`
 export const ThemeSelector = styled.div`
   display: flex;
   align-items: center;
+  cursor: pointer;
+
+  :hover {
+    path {
+      fill: ${(props) => props.theme.hoverColor};
+    }
+
+    button {
+      color: ${(props) => props.theme.hoverColor};
+    }
+  }
 `;
 
 export const ThemeButton = styled.button`
@@ -41,12 +52,8 @@ export const ThemeButton = styled.button`
   text-transform: uppercase;
   letter-spacing: 2.5px;
   font-size: 0.8125rem;
-
-  :hover {
-    color: ${(props) => props.theme.hoverColor};
-  }
 `;
 
-export const Icon = styled.img`
+export const Icon = styled.svg`
   margin-left: 1rem;
 `;

@@ -13,7 +13,6 @@ export const GlobalStyles = styled.createGlobalStyle`
     --offWhite: #fefefe;
 
     //dark mode colors
-    //--brightBlue
     --white: #ffffff;
     --darkBlack: #141d2f;
     --navyBlue: #1e2a47;
