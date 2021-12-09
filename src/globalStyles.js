@@ -32,7 +32,7 @@ export const GlobalStyles = styled.createGlobalStyle`
   }
 
   body {
-    min-height: 100vh;
+    height: 100vh;
     font-family: "Space Mono", sans-serif;
     background-color: ${(props) => props.theme.backgroundColor};
     color: ${(props) => props.theme.color};

@@ -90,8 +90,8 @@ const Search = ({ setUser, user, fetchData, error }) => {
           placeholder="Search GitHub username..."
           onChange={(e) => setUser(e.target.value)}
         />
-        {/* should call the api on click */}
-        <Button error={error} onClick={() => fetchData(user)}>
+
+        <Button error={error} onClick={() => fetchData()}>
           Search
         </Button>
       </InputSection>

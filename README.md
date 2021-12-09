@@ -25,7 +25,7 @@ This is a solution to the [GitHub user search app challenge on Frontend Mentor](
 
 Users should be able to:
 
-- [] View the optimal layout for the app depending on their device's screen size
+- [x] View the optimal layout for the app depending on their device's screen size
 - [] See hover states for all interactive elements on the page
 - [x] Search for GitHub users by their username
 - [x] See relevant user information based on their search
