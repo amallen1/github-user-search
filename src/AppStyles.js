@@ -11,7 +11,7 @@ export const Container = styled.div`
   }
 
   //for desktops
-  @media (min-width: 900px) {
+  @media ${breakpoints.laptop} {
     max-width: 780px;
   }
 `;

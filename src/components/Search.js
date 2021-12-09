@@ -81,7 +81,7 @@ const Button = styled.button`
   }
 `;
 
-const Search = ({ setUser, user, fetchData, error }) => {
+const Search = ({ setUser, fetchData, error }) => {
   return (
     <div>
       <InputSection>
