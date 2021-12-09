@@ -59,14 +59,13 @@ I also learned about a Javascript library called Moment.js that helps to format 
 
 ### Continued development
 
-- [] Fix the error message if a user does not exist
+- [x] Fix the error message if a user does not exist
 - [] Clean up styles and code
 - [] Fix link redirecting error
 
 ### Useful resources
 
 - [Moment JS Docs](https://momentjs.com/docs/) - This helped me with the date formatting.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
 
 ## Author
 
