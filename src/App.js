@@ -55,7 +55,7 @@ function App() {
     if (!data) {
       fetchData();
     }
-  }, []);
+  });
 
   const fetchData = async () => {
     axios(`https://api.github.com/users/${username}`)
@@ -107,7 +107,6 @@ function App() {
 
         <Search
           setUser={setUsername}
-          user={username}
           fetchData={fetchData}
           error={caughtError}
         />

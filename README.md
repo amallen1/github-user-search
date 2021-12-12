@@ -26,11 +26,10 @@ This is a solution to the [GitHub user search app challenge on Frontend Mentor](
 Users should be able to:
 
 - [x] View the optimal layout for the app depending on their device's screen size
-- [] See hover states for all interactive elements on the page
+- [x] See hover states for all interactive elements on the page
 - [x] Search for GitHub users by their username
 - [x] See relevant user information based on their search
 - [x] Switch between light and dark themes
-- [] **Bonus**: Have the correct color scheme chosen for them based on their computer preferences. _Hint_: Research `prefers-color-scheme` in CSS.
 
 ### Screenshot
 
@@ -62,6 +61,7 @@ I also learned about a Javascript library called Moment.js that helps to format 
 - [x] Fix the error message if a user does not exist
 - [] Clean up styles and code
 - [] Fix link redirecting error
+- [] **Bonus**: Have the correct color scheme chosen for them based on their computer preferences. _Hint_: Research `prefers-color-scheme` in CSS.
 
 ### Useful resources
 
