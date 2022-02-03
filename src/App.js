@@ -64,7 +64,7 @@ function App() {
         setData(response.data);
         setCaughtError(false);
         setIsLoaded(true);
-        return response.data;
+        return;
       })
       .catch((error) => {
         console.log(error);
@@ -72,6 +72,8 @@ function App() {
         //If username doesn't exist
         setCaughtError(true);
       });
+
+    setIsLoaded(false);
   };
 
   const themeToggler = () => {
@@ -81,7 +83,6 @@ function App() {
   return (
     <ThemeProvider theme={themes[theme]}>
       <GlobalStyles />
-
       <Container>
         <Header>
           <Logo>devfinder</Logo>

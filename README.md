@@ -44,8 +44,6 @@ Users should be able to:
 
 ### Built with
 
-- Semantic HTML5 markup
-- CSS custom properties
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
 - [Styled Components](https://styled-components.com/) - For styles
@@ -60,7 +58,7 @@ I also learned about a Javascript library called Moment.js that helps to format 
 
 - [x] Fix the error message if a user does not exist
 - [] Clean up styles and code
-- [] Fix link redirecting error
+- [x] Fix link redirecting error
 - [] **Bonus**: Have the correct color scheme chosen for them based on their computer preferences. _Hint_: Research `prefers-color-scheme` in CSS.
 
 ### Useful resources

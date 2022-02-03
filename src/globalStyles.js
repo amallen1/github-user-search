@@ -4,7 +4,7 @@ export const GlobalStyles = styled.createGlobalStyle`
   :root {
     font-size: 16px;
 
-    //light mode colors
+    /* light mode colors */
     --brightBlue: #0079ff;
     --gray: #697c9a;
     --dullBlue: #4b6a9b;
@@ -12,16 +12,16 @@ export const GlobalStyles = styled.createGlobalStyle`
     --lightGray: #f6f8ff;
     --offWhite: #fefefe;
 
-    //dark mode colors
+    /* dark mode colors */
     --white: #ffffff;
     --darkBlack: #141d2f;
     --navyBlue: #1e2a47;
     --nearBlack: #222731;
 
-    //button hover color
+    /* button hover color */
     --buttonHover: #60abff;
 
-    //box shadow for light theme
+    /* box shadow for light theme */
     --cardShadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.1986);
   }
 
@@ -32,7 +32,7 @@ export const GlobalStyles = styled.createGlobalStyle`
   }
 
   body {
-    height: 100vh;
+    min-height: 100vh;
     font-family: "Space Mono", sans-serif;
     background-color: ${(props) => props.theme.backgroundColor};
     color: ${(props) => props.theme.color};

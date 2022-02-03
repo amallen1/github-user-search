@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Moment from "moment";
 import {
   Card,
@@ -15,6 +15,16 @@ import {
 } from "./ProfileCardStyles";
 
 const ProfileCard = ({ data, loaded }) => {
+  const [hasHttp, setHasHttp] = useState(false);
+
+  useEffect(() => {
+    if (loaded && data.blog.includes("http")) {
+      setHasHttp(true);
+    } else {
+      setHasHttp(false);
+    }
+  }, [loaded]);
+
   return (
     <div>
       <Card>
@@ -85,7 +95,9 @@ const ProfileCard = ({ data, loaded }) => {
             <li>
               <img src="/assets/icon-website.svg" alt="Website icon" />
               {loaded && data !== null && data.blog !== "" ? (
-                <a href={data.blog}>{data.blog}</a>
+                <a href={hasHttp ? data.blog : `https://${data.blog}`}>
+                  {data.blog}
+                </a>
               ) : (
                 <Unavailable>Not available</Unavailable>
               )}
